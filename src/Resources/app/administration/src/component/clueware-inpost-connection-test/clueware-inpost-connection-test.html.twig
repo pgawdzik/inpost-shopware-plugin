@@ -1,0 +1,20 @@
+<div class="clueware-inpost-connection-test">
+    <div class="clueware-inpost-connection-test__content">
+        <strong class="clueware-inpost-connection-test__title">
+            {{ $t('clueware-inpost.connectionTest.title') }}
+        </strong>
+        <p class="clueware-inpost-connection-test__help">
+        {{ $t('clueware-inpost.connectionTest.help') }}
+        </p>
+    </div>
+
+    <sw-button
+        class="clueware-inpost-connection-test__action"
+        variant="secondary"
+        :is-loading="testing"
+        :disabled="testing"
+        @click="testConnection"
+    >
+        {{ $t('clueware-inpost.connectionTest.action') }}
+    </sw-button>
+</div>

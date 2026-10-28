@@ -1,0 +1,8 @@
+{% block sw_order_detail_general_info_card %}
+    {% parent %}
+
+    <clueware-inpost-shipment-card
+        v-if="order"
+        :order-id="order.id"
+    />
+{% endblock %}

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title lang="en-GB">Connection</title>
+        <title lang="de-DE">Verbindung</title>
+        <title lang="pl-PL">Połączenie</title>
+
+        <input-field type="bool">
+            <name>active</name>
+            <label lang="en-GB">Enable InPost integration</label>
+            <label lang="de-DE">InPost-Integration aktivieren</label>
+            <label lang="pl-PL">Włącz integrację InPost</label>
+            <defaultValue>false</defaultValue>
+            <helpText lang="en-GB">Enable only after saving valid ShipX and GeoWidget credentials for this sales channel.</helpText>
+            <helpText lang="de-DE">Erst aktivieren, nachdem gültige ShipX- und GeoWidget-Zugangsdaten für diesen Verkaufskanal gespeichert wurden.</helpText>
+            <helpText lang="pl-PL">Włącz dopiero po zapisaniu poprawnych danych ShipX i GeoWidget dla tego kanału sprzedaży.</helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showNativePhoneField</name>
+            <label lang="en-GB">Show Shopware's native phone field automatically</label>
+            <label lang="de-DE">Natives Shopware-Telefonfeld automatisch anzeigen</label>
+            <label lang="pl-PL">Automatycznie pokaż natywne pole telefonu Shopware</label>
+            <defaultValue>true</defaultValue>
+            <helpText lang="en-GB">When the integration is active, the plugin makes Shopware's native address phone field visible for this sales channel. The phone remains required only for InPost orders. Disabling this option does not hide a field that is already visible.</helpText>
+            <helpText lang="de-DE">Wenn die Integration aktiv ist, zeigt das Plugin das native Shopware-Telefonfeld für Adressen in diesem Verkaufskanal an. Die Telefonnummer bleibt nur für InPost-Bestellungen verpflichtend. Das Deaktivieren dieser Option blendet ein bereits sichtbares Feld nicht aus.</helpText>
+            <helpText lang="pl-PL">Gdy integracja jest aktywna, plugin pokazuje natywne pole telefonu w adresach Shopware dla tego kanału sprzedaży. Telefon pozostaje wymagany tylko dla zamówień InPost. Wyłączenie tej opcji nie ukrywa pola, które jest już widoczne.</helpText>
+        </input-field>
+
+        <component name="clueware-inpost-connection-test">
+            <name>connectionTest</name>
+        </component>
+
+        <input-field type="single-select">
+            <name>environment</name>
+            <label lang="en-GB">Environment</label>
+            <label lang="de-DE">Umgebung</label>
+            <label lang="pl-PL">Środowisko</label>
+            <defaultValue>production</defaultValue>
+            <options>
+                <option><id>sandbox</id><name lang="en-GB">Sandbox</name><name lang="de-DE">Sandbox</name><name lang="pl-PL">Sandbox</name></option>
+                <option><id>production</id><name lang="en-GB">Production</name><name lang="de-DE">Produktion</name><name lang="pl-PL">Produkcja</name></option>
+            </options>
+        </input-field>
+
+        <input-field type="password">
+            <name>apiToken</name>
+            <label lang="en-GB">ShipX API token</label>
+            <label lang="de-DE">ShipX API-Token</label>
+            <label lang="pl-PL">Token API ShipX</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>organizationId</name>
+            <label lang="en-GB">Organization ID</label>
+            <label lang="de-DE">Organisations-ID</label>
+            <label lang="pl-PL">ID organizacji</label>
+        </input-field>
+
+        <input-field type="password">
+            <name>geowidgetToken</name>
+            <label lang="en-GB">Public Geowidget token</label>
+            <label lang="de-DE">Öffentlicher Geowidget-Token</label>
+            <label lang="pl-PL">Publiczny token Geowidget</label>
+            <helpText lang="en-GB">The domain-bound public token. The private ShipX token is never sent to the storefront.</helpText>
+            <helpText lang="de-DE">Der domainbezogene öffentliche Token. Der private ShipX-Token wird nie an den Storefront gesendet.</helpText>
+            <helpText lang="pl-PL">Publiczny token przypisany do domeny. Prywatny token ShipX nigdy nie trafia do Storefrontu.</helpText>
+        </input-field>
+
+        <input-field type="multi-select">
+            <name>geowidgetCountries</name>
+            <label lang="en-GB">Countries shown in GeoWidget</label>
+            <label lang="de-DE">Im GeoWidget angezeigte Länder</label>
+            <label lang="pl-PL">Kraje widoczne w GeoWidget</label>
+            <defaultValue>["PL","BE","GB","ES","FR","IT","LU","NL","PT","AT","HU"]</defaultValue>
+            <helpText lang="en-GB">All supported countries are enabled by default. The first selected country is the fallback map view; Poland is first in the default selection.</helpText>
+            <helpText lang="de-DE">Standardmäßig sind alle unterstützten Länder aktiviert. Das zuerst ausgewählte Land ist die Ersatzansicht der Karte; in der Standardauswahl steht Polen an erster Stelle.</helpText>
+            <helpText lang="pl-PL">Domyślnie włączone są wszystkie obsługiwane kraje. Pierwszy wybrany kraj jest widokiem zapasowym mapy; w domyślnym wyborze pierwsza jest Polska.</helpText>
+            <options>
+                <option><id>PL</id><name lang="en-GB">Poland</name><name lang="de-DE">Polen</name><name lang="pl-PL">Polska</name></option>
+                <option><id>BE</id><name lang="en-GB">Belgium</name><name lang="de-DE">Belgien</name><name lang="pl-PL">Belgia</name></option>
+                <option><id>GB</id><name lang="en-GB">United Kingdom</name><name lang="de-DE">Vereinigtes Königreich</name><name lang="pl-PL">Wielka Brytania</name></option>
+                <option><id>ES</id><name lang="en-GB">Spain</name><name lang="de-DE">Spanien</name><name lang="pl-PL">Hiszpania</name></option>
+                <option><id>FR</id><name lang="en-GB">France</name><name lang="de-DE">Frankreich</name><name lang="pl-PL">Francja</name></option>
+                <option><id>IT</id><name lang="en-GB">Italy</name><name lang="de-DE">Italien</name><name lang="pl-PL">Włochy</name></option>
+                <option><id>LU</id><name lang="en-GB">Luxembourg</name><name lang="de-DE">Luxemburg</name><name lang="pl-PL">Luksemburg</name></option>
+                <option><id>NL</id><name lang="en-GB">Netherlands</name><name lang="de-DE">Niederlande</name><name lang="pl-PL">Holandia</name></option>
+                <option><id>PT</id><name lang="en-GB">Portugal</name><name lang="de-DE">Portugal</name><name lang="pl-PL">Portugalia</name></option>
+                <option><id>AT</id><name lang="en-GB">Austria</name><name lang="de-DE">Österreich</name><name lang="pl-PL">Austria</name></option>
+                <option><id>HU</id><name lang="en-GB">Hungary</name><name lang="de-DE">Ungarn</name><name lang="pl-PL">Węgry</name></option>
+            </options>
+        </input-field>
+    </card>
+
+    <card>
+        <title lang="en-GB">Shipping methods</title>
+        <title lang="de-DE">Versandarten</title>
+        <title lang="pl-PL">Metody dostawy</title>
+
+        <input-field type="single-select">
+            <name>lockerService</name>
+            <label lang="en-GB">Locker service</label>
+            <label lang="de-DE">Paczkomat-Service</label>
+            <label lang="pl-PL">Usługa Paczkomat</label>
+            <defaultValue>inpost_locker_standard</defaultValue>
+            <options>
+                <option><id>inpost_locker_standard</id><name lang="en-GB">Locker standard</name><name lang="de-DE">Paczkomat Standard</name><name lang="pl-PL">Paczkomat standard</name></option>
+                <option><id>inpost_locker_pass_thru</id><name lang="en-GB">Locker Pass-Thru</name><name lang="de-DE">Paczkomat Pass-Thru</name><name lang="pl-PL">Paczkomat Pass-Thru</name></option>
+            </options>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>courierService</name>
+            <label lang="en-GB">Courier service</label>
+            <label lang="de-DE">Kurier-Service</label>
+            <label lang="pl-PL">Usługa kurierska</label>
+            <defaultValue>inpost_courier_standard</defaultValue>
+            <options>
+                <option><id>inpost_courier_standard</id><name lang="en-GB">Courier standard</name><name lang="de-DE">Kurier Standard</name><name lang="pl-PL">Kurier standard</name></option>
+                <option><id>inpost_courier_c2c</id><name lang="en-GB">Courier C2C</name><name lang="de-DE">Kurier C2C</name><name lang="pl-PL">Kurier C2C</name></option>
+            </options>
+        </input-field>
+    </card>
+
+    <card>
+        <title lang="en-GB">Shipment defaults</title>
+        <title lang="de-DE">Sendungsstandardwerte</title>
+        <title lang="pl-PL">Domyślne ustawienia przesyłki</title>
+
+        <input-field type="single-select">
+            <name>defaultSize</name>
+            <label lang="en-GB">Default locker size</label>
+            <label lang="de-DE">Standard-Paczkomatgröße</label>
+            <label lang="pl-PL">Domyślny gabaryt</label>
+            <defaultValue>small</defaultValue>
+            <options>
+                <option><id>small</id><name lang="en-GB">A (small)</name><name lang="de-DE">A (klein)</name><name lang="pl-PL">A (mały)</name></option>
+                <option><id>medium</id><name lang="en-GB">B (medium)</name><name lang="de-DE">B (mittel)</name><name lang="pl-PL">B (średni)</name></option>
+                <option><id>large</id><name lang="en-GB">C (large)</name><name lang="de-DE">C (groß)</name><name lang="pl-PL">C (duży)</name></option>
+            </options>
+        </input-field>
+
+        <input-field type="float">
+            <name>defaultWeight</name>
+            <label lang="en-GB">Fallback weight (kg)</label>
+            <label lang="de-DE">Ersatzgewicht (kg)</label>
+            <label lang="pl-PL">Zapasowa waga (kg)</label>
+            <defaultValue>1</defaultValue>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>labelFormat</name>
+            <label lang="en-GB">PDF label format</label>
+            <label lang="de-DE">PDF-Etikettenformat</label>
+            <label lang="pl-PL">Format etykiety PDF</label>
+            <defaultValue>A6</defaultValue>
+            <options>
+                <option><id>A6</id><name>A6</name></option>
+                <option><id>A4</id><name>A4</name></option>
+            </options>
+        </input-field>
+
+        <input-field type="bool">
+            <name>codEnabled</name>
+            <label lang="en-GB">Allow cash on delivery</label>
+            <label lang="de-DE">Nachnahme erlauben</label>
+            <label lang="pl-PL">Zezwól na pobranie</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+</config>

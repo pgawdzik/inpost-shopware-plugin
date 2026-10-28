@@ -1,0 +1,20 @@
+{
+    "cluewareInpostShipping": {
+        "checkout": {
+            "selectedPoint": "Selected InPost point",
+            "noPoint": "No pickup point selected",
+            "choosePoint": "Choose or change pickup point",
+            "closeMap": "Close pickup point map",
+            "loadingMap": "Positioning the map for the delivery address…",
+            "pointRequired": "Select an InPost pickup point before placing the order.",
+            "phoneNumberRequired": "Add a phone number to the shipping address before placing an InPost order."
+        },
+        "finish": {
+            "title": "Your InPost pickup point"
+        }
+    },
+    "checkout": {
+        "cluewareInpostShipping.checkout.pointRequired": "Select an InPost pickup point before placing the order.",
+        "cluewareInpostShipping.checkout.phoneNumberRequired": "Add a phone number to the shipping address before placing an InPost order."
+    }
+}

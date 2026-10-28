@@ -1,0 +1,27 @@
+{
+  "base": "/bundles/cluewareinpostshipping/administration/",
+  "entryPoints": {
+        "clueware-inpost-shipping": {
+      "css": [
+        "/bundles/cluewareinpostshipping/administration/assets/clueware-inpost-shipping-B_jmOnps.css",
+        "/bundles/cluewareinpostshipping/administration/assets/clueware-inpost-connection-test.css?v=2.0.6"
+      ],
+      "dynamic": [],
+      "js": [
+                "/bundles/cluewareinpostshipping/administration/assets/clueware-inpost-shipping-C68JsSjA.js?v=2.0.6",
+                "/bundles/cluewareinpostshipping/administration/assets/clueware-inpost-connection-test.js?v=2.0.6"
+      ],
+      "legacy": false,
+      "preload": []
+    }
+  },
+  "legacy": false,
+  "metadatas": {},
+  "version": [
+    "7.1.0",
+    7,
+    1,
+    0
+  ],
+  "viteServer": null
+}

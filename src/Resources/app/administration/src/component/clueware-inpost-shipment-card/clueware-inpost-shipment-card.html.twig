@@ -1,0 +1,183 @@
+<sw-card
+    v-if="!loading && isInpostOrder"
+    class="clueware-inpost-card"
+    :title="$t('clueware-inpost.card.title')"
+    :is-loading="processing"
+>
+    <div class="clueware-inpost-card__brand">
+        <img
+            :src="'cluewareinpostshipping/administration/static/img/inpost-mark.svg' | asset"
+            alt="InPost"
+        >
+        <div>
+            <strong>{{ $t('clueware-inpost.card.deliveryType') }}</strong>
+            {{ $t(`clueware-inpost.deliveryType.${state.deliveryType}`) }}
+        </div>
+    </div>
+
+    <sw-alert
+        v-if="!state.apiConfigured"
+        variant="warning"
+    >
+        {{ $t('clueware-inpost.card.configurationMissing') }}
+    </sw-alert>
+
+    <div
+        v-if="state.point"
+        class="clueware-inpost-card__point"
+    >
+        <strong>{{ $t('clueware-inpost.card.point') }}</strong>
+        <span>{{ state.point.name }}</span>
+        <span>{{ pointAddress }}</span>
+    </div>
+
+    <template v-if="canCreate">
+        <div class="clueware-inpost-card__form">
+            <sw-number-field
+                v-model:value="form.weight"
+                :label="$t('clueware-inpost.fields.weight')"
+                :min="0.001"
+                :max="50"
+                :step="0.1"
+            />
+
+            <sw-single-select
+                v-if="state.deliveryType === 'locker'"
+                v-model:value="form.size"
+                :label="$t('clueware-inpost.fields.size')"
+                :options="[
+                    { value: 'small', label: $t('clueware-inpost.sizes.small') },
+                    { value: 'medium', label: $t('clueware-inpost.sizes.medium') },
+                    { value: 'large', label: $t('clueware-inpost.sizes.large') }
+                ]"
+            />
+
+            <template v-if="state.deliveryType === 'courier'">
+                <sw-number-field
+                    v-model:value="form.length"
+                    :label="$t('clueware-inpost.fields.length')"
+                    :min="1"
+                    :max="3500"
+                    :step="1"
+                />
+                <sw-number-field
+                    v-model:value="form.width"
+                    :label="$t('clueware-inpost.fields.width')"
+                    :min="1"
+                    :max="2400"
+                    :step="1"
+                />
+                <sw-number-field
+                    v-model:value="form.height"
+                    :label="$t('clueware-inpost.fields.height')"
+                    :min="1"
+                    :max="2400"
+                    :step="1"
+                />
+            </template>
+
+            <sw-number-field
+                v-if="state.codEnabled"
+                v-model:value="form.codAmount"
+                :label="$t('clueware-inpost.fields.codAmount')"
+                :min="0"
+                :step="0.01"
+            />
+
+            <sw-single-select
+                v-model:value="form.labelFormat"
+                :label="$t('clueware-inpost.fields.labelFormat')"
+                :options="[
+                    { value: 'A6', label: 'A6' },
+                    { value: 'A4', label: 'A4' }
+                ]"
+            />
+        </div>
+
+        <sw-alert
+            v-if="state.shipment?.lastErrorMessage"
+            variant="error"
+        >
+            {{ state.shipment.lastErrorMessage }}
+        </sw-alert>
+
+        <sw-button
+            v-tooltip="{
+                message: $t('sw-privileges.tooltip.warning'),
+                disabled: acl.can('clueware_inpost_shipping.creator'),
+                showOnDisabledElements: true
+            }"
+            variant="primary"
+            :is-loading="processing"
+            :disabled="processing || !state.apiConfigured || !acl.can('clueware_inpost_shipping.creator')"
+            @click="createShipment"
+        >
+            {{ $t('clueware-inpost.actions.create') }}
+        </sw-button>
+    </template>
+
+    <template v-else>
+        <div class="clueware-inpost-card__details">
+            <dl>
+                <dt>{{ $t('clueware-inpost.card.status') }}</dt>
+                <dd>{{ statusLabel }}</dd>
+                <dt>{{ $t('clueware-inpost.card.tracking') }}</dt>
+                <dd>
+                    <a
+                        v-if="state.shipment.trackingNumber"
+                        :href="trackingUrl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {{ state.shipment.trackingNumber }}
+                    </a>
+                    <span v-else>—</span>
+                </dd>
+                <dt>{{ $t('clueware-inpost.fields.weight') }}</dt>
+                <dd>{{ state.shipment.weight }} kg</dd>
+                <dt>{{ $t('clueware-inpost.fields.size') }}</dt>
+                <dd>{{ state.shipment.size || '—' }}</dd>
+            </dl>
+        </div>
+
+        <div class="clueware-inpost-card__actions">
+            <sw-button
+                :disabled="processing || !acl.can('clueware_inpost_shipping.editor')"
+                @click="refreshShipment"
+            >
+                {{ $t('clueware-inpost.actions.refresh') }}
+            </sw-button>
+            <sw-button
+                :disabled="processing || !state.shipment.externalShipmentId || !acl.can('clueware_inpost_shipping.label')"
+                @click="downloadLabel"
+            >
+                {{ $t('clueware-inpost.actions.label') }}
+            </sw-button>
+            <sw-button
+                v-if="canCancel"
+                variant="danger"
+                :disabled="processing || !acl.can('clueware_inpost_shipping.canceller')"
+                @click="cancelShipment"
+            >
+                {{ $t('clueware-inpost.actions.cancel') }}
+            </sw-button>
+        </div>
+    </template>
+
+    <details
+        v-if="state.shipment?.operationLog?.length"
+        class="clueware-inpost-card__log"
+    >
+        <summary>{{ $t('clueware-inpost.card.log') }}</summary>
+        <ul>
+            <li
+                v-for="(entry, index) in state.shipment.operationLog"
+                :key="index"
+            >
+                <time>{{ entry.at }}</time>
+                <strong>{{ entry.action }}</strong>
+                <span v-if="entry.message">{{ entry.message }}</span>
+            </li>
+        </ul>
+    </details>
+</sw-card>

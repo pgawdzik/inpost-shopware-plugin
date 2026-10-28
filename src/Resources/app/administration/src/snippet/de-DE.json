@@ -1,0 +1,76 @@
+{
+    "clueware-inpost": {
+        "general": {
+            "mainMenuItemGeneral": "InPost Versand",
+            "description": "Konfiguration der InPost-Versandintegration."
+        },
+        "connectionTest": {
+            "title": "ShipX-API-Zugangsdaten",
+            "help": "Speichern Sie zuerst die Zugangsdaten. Der Test prüft jeden konfigurierten Verkaufskanal.",
+            "action": "Testen",
+            "success": "Die Zugangsdaten sind für {count} Verkaufskanal gültig | Die Zugangsdaten sind für {count} Verkaufskanäle gültig",
+            "error": "Die ShipX-Verbindung konnte nicht geprüft werden."
+        },
+        "card": {
+            "title": "InPost-Sendung",
+            "deliveryType": "Versandart",
+            "configurationMissing": "Hinterlegen Sie den InPost API-Token und die Organisations-ID in der Plugin-Konfiguration.",
+            "point": "Abholpunkt",
+            "status": "Status",
+            "tracking": "Sendungsnummer",
+            "log": "Vorgangsprotokoll"
+        },
+        "deliveryType": {
+            "locker": "Paczkomat / Abholpunkt",
+            "courier": "Kurier"
+        },
+        "fields": {
+            "weight": "Gewicht",
+            "size": "Paketgröße",
+            "length": "Länge (mm)",
+            "width": "Breite (mm)",
+            "height": "Höhe (mm)",
+            "codAmount": "Nachnahmebetrag",
+            "labelFormat": "Etikettenformat"
+        },
+        "sizes": {
+            "small": "A (klein)",
+            "medium": "B (mittel)",
+            "large": "C (groß)"
+        },
+        "actions": {
+            "create": "InPost-Sendung erstellen",
+            "refresh": "Status aktualisieren",
+            "label": "Etikett herunterladen",
+            "cancel": "Sendung stornieren"
+        },
+        "status": {
+            "draft": "Entwurf",
+            "creating": "Wird erstellt",
+            "created": "Erstellt",
+            "cancelled": "Storniert",
+            "delivered": "Zugestellt",
+            "returned": "Retourniert",
+            "error": "Fehler"
+        },
+        "messages": {
+            "created": "Die InPost-Sendung wurde erstellt.",
+            "refreshed": "Der Sendungsstatus wurde aktualisiert.",
+            "cancelled": "Die Sendung wurde storniert.",
+            "cancelConfirm": "Möchten Sie diese InPost-Sendung wirklich stornieren?",
+            "error": "Der InPost-Vorgang ist fehlgeschlagen."
+        }
+    },
+    "sw-privileges": {
+        "permissions": {
+            "clueware_inpost_shipping": {
+                "label": "InPost-Sendungen",
+                "viewer": "Anzeigen",
+                "creator": "Erstellen",
+                "editor": "Aktualisieren",
+                "canceller": "Stornieren",
+                "labelDownloader": "Etiketten herunterladen"
+            }
+        }
+    }
+}

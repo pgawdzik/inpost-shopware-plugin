@@ -1,0 +1,76 @@
+{
+    "clueware-inpost": {
+        "general": {
+            "mainMenuItemGeneral": "Wysyłka InPost",
+            "description": "Konfiguracja integracji wysyłki InPost."
+        },
+        "connectionTest": {
+            "title": "Dane API ShipX",
+            "help": "Najpierw zapisz dane dostępowe. Test sprawdza każdy skonfigurowany kanał sprzedaży.",
+            "action": "Testuj",
+            "success": "Dane są poprawne dla {count} kanału sprzedaży | Dane są poprawne dla {count} kanałów sprzedaży",
+            "error": "Nie udało się sprawdzić połączenia ShipX."
+        },
+        "card": {
+            "title": "Przesyłka InPost",
+            "deliveryType": "Typ dostawy",
+            "configurationMissing": "Uzupełnij token API InPost i ID organizacji w konfiguracji pluginu.",
+            "point": "Punkt odbioru",
+            "status": "Status",
+            "tracking": "Numer przesyłki",
+            "log": "Dziennik operacji"
+        },
+        "deliveryType": {
+            "locker": "Paczkomat / punkt odbioru",
+            "courier": "Kurier"
+        },
+        "fields": {
+            "weight": "Waga",
+            "size": "Gabaryt",
+            "length": "Długość (mm)",
+            "width": "Szerokość (mm)",
+            "height": "Wysokość (mm)",
+            "codAmount": "Kwota pobrania",
+            "labelFormat": "Format etykiety"
+        },
+        "sizes": {
+            "small": "A (mały)",
+            "medium": "B (średni)",
+            "large": "C (duży)"
+        },
+        "actions": {
+            "create": "Utwórz przesyłkę InPost",
+            "refresh": "Odśwież status",
+            "label": "Pobierz etykietę",
+            "cancel": "Anuluj przesyłkę"
+        },
+        "status": {
+            "draft": "Szkic",
+            "creating": "Tworzenie",
+            "created": "Utworzona",
+            "cancelled": "Anulowana",
+            "delivered": "Doręczona",
+            "returned": "Zwrócona",
+            "error": "Błąd"
+        },
+        "messages": {
+            "created": "Przesyłka InPost została utworzona.",
+            "refreshed": "Status przesyłki został odświeżony.",
+            "cancelled": "Przesyłka została anulowana.",
+            "cancelConfirm": "Czy na pewno anulować tę przesyłkę InPost?",
+            "error": "Operacja InPost nie powiodła się."
+        }
+    },
+    "sw-privileges": {
+        "permissions": {
+            "clueware_inpost_shipping": {
+                "label": "Przesyłki InPost",
+                "viewer": "Podgląd",
+                "creator": "Tworzenie",
+                "editor": "Odświeżanie",
+                "canceller": "Anulowanie",
+                "labelDownloader": "Pobieranie etykiet"
+            }
+        }
+    }
+}

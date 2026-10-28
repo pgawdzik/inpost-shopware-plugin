@@ -1,0 +1,20 @@
+{
+    "cluewareInpostShipping": {
+        "checkout": {
+            "selectedPoint": "Ausgewählter InPost-Abholpunkt",
+            "noPoint": "Kein Abholpunkt ausgewählt",
+            "choosePoint": "Abholpunkt auswählen oder ändern",
+            "closeMap": "Karte der Abholpunkte schließen",
+            "loadingMap": "Karte wird auf die Lieferadresse ausgerichtet…",
+            "pointRequired": "Wählen Sie vor der Bestellung einen InPost-Abholpunkt aus.",
+            "phoneNumberRequired": "Ergänzen Sie vor einer InPost-Bestellung die Telefonnummer in der Lieferadresse."
+        },
+        "finish": {
+            "title": "Ihr InPost-Abholpunkt"
+        }
+    },
+    "checkout": {
+        "cluewareInpostShipping.checkout.pointRequired": "Wählen Sie vor der Bestellung einen InPost-Abholpunkt aus.",
+        "cluewareInpostShipping.checkout.phoneNumberRequired": "Ergänzen Sie vor einer InPost-Bestellung die Telefonnummer in der Lieferadresse."
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "name": "clueware/inpost-shipping",
+    "description": "Free InPost Shopware plugin for Shopware 6: parcel lockers, courier shipping, PDF labels and tracking via ShipX.",
+    "version": "2.0.15",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "homepage": "https://github.com/pgawdzik/inpost-shopware-plugin",
+    "keywords": ["shopware", "shopware6", "inpost", "shipping", "parcel-locker", "shipx"],
+    "support": {
+        "issues": "https://github.com/pgawdzik/inpost-shopware-plugin/issues",
+        "source": "https://github.com/pgawdzik/inpost-shopware-plugin"
+    },
+    "authors": [
+        {
+            "name": "Clueware",
+            "role": "Manufacturer"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "shopware/core": "~6.7.0",
+        "shopware/storefront": "~6.7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Clueware\\InpostShipping\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "Clueware\\InpostShipping\\CluewareInpostShipping",
+        "label": {
+            "de-DE": "InPost Versand",
+            "en-GB": "InPost Shipping",
+            "pl-PL": "Wysyłka InPost"
+        },
+        "description": {
+            "de-DE": "Paczkomat-Auswahl und vollständige Verwaltung einzelner InPost-Sendungen.",
+            "en-GB": "Parcel locker selection and complete management of individual InPost shipments.",
+            "pl-PL": "Wybór Paczkomatu i kompletna obsługa pojedynczych przesyłek InPost."
+        },
+        "manufacturerLink": {
+            "de-DE": "https://clueware.de",
+            "en-GB": "https://clueware.de",
+            "pl-PL": "https://clueware.de"
+        },
+        "supportLink": {
+            "de-DE": "https://clueware.de",
+            "en-GB": "https://clueware.de",
+            "pl-PL": "https://clueware.de"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

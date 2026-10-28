@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic https://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults autowire="true" autoconfigure="true" public="false"/>
+
+        <prototype namespace="Clueware\InpostShipping\" resource="../../"
+                   exclude="../../{DependencyInjection,Resources,Migration,Test}"/>
+
+        <service id="Clueware\InpostShipping\Content\Shipment\ShipmentDefinition">
+            <tag name="shopware.entity.definition" entity="clueware_inpost_shipment"/>
+        </service>
+
+        <service id="Clueware\InpostShipping\Api\InPostApiClientInterface"
+                 alias="Clueware\InpostShipping\Api\InPostApiClient"/>
+
+        <service id="Clueware\InpostShipping\Shipping\ShippingMethodMediaInstaller" public="true">
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="Shopware\Core\Content\Media\MediaService"/>
+            <argument type="service" id="media.repository"/>
+        </service>
+
+        <service id="Clueware\InpostShipping\Shipping\ShippingMethodAvailabilitySynchronizer" public="true"/>
+        <service id="Clueware\InpostShipping\Configuration\PhoneFieldVisibilitySynchronizer" public="true"/>
+
+        <service id="Clueware\InpostShipping\Order\WeightAndSizeCalculator">
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="Clueware\InpostShipping\Configuration\PluginConfig"/>
+        </service>
+
+        <service id="Clueware\InpostShipping\Order\ShipmentManager">
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="clueware_inpost_shipment.repository"/>
+            <argument type="service" id="order_delivery.repository"/>
+            <argument type="service" id="Clueware\InpostShipping\Configuration\PluginConfig"/>
+            <argument type="service" id="Clueware\InpostShipping\Api\InPostApiClientInterface"/>
+            <argument type="service" id="Clueware\InpostShipping\Order\WeightAndSizeCalculator"/>
+            <argument type="service" id="Clueware\InpostShipping\Order\ShipmentStatusMapper"/>
+            <argument type="service" id="lock.factory"/>
+        </service>
+
+        <service id="Clueware\InpostShipping\Storefront\Controller\PointSelectionController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+
+        <service id="Clueware\InpostShipping\Administration\Controller\ShipmentController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+        </service>
+    </services>
+</container>

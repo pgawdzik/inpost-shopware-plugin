@@ -1,0 +1,76 @@
+{
+    "clueware-inpost": {
+        "general": {
+            "mainMenuItemGeneral": "InPost Shipping",
+            "description": "Configure the InPost shipping integration."
+        },
+        "connectionTest": {
+            "title": "ShipX API credentials",
+            "help": "Save the credentials first. The test verifies every configured sales channel.",
+            "action": "Test",
+            "success": "The credentials are valid for {count} sales channel | The credentials are valid for {count} sales channels",
+            "error": "The ShipX connection could not be verified."
+        },
+        "card": {
+            "title": "InPost shipment",
+            "deliveryType": "Delivery type",
+            "configurationMissing": "Complete the InPost API token and organization ID in the plugin configuration.",
+            "point": "Pickup point",
+            "status": "Status",
+            "tracking": "Tracking number",
+            "log": "Operation log"
+        },
+        "deliveryType": {
+            "locker": "Parcel locker / pickup point",
+            "courier": "Courier"
+        },
+        "fields": {
+            "weight": "Weight",
+            "size": "Parcel size",
+            "length": "Length (mm)",
+            "width": "Width (mm)",
+            "height": "Height (mm)",
+            "codAmount": "Cash on delivery amount",
+            "labelFormat": "Label format"
+        },
+        "sizes": {
+            "small": "A (small)",
+            "medium": "B (medium)",
+            "large": "C (large)"
+        },
+        "actions": {
+            "create": "Create InPost shipment",
+            "refresh": "Refresh status",
+            "label": "Download label",
+            "cancel": "Cancel shipment"
+        },
+        "status": {
+            "draft": "Draft",
+            "creating": "Creating",
+            "created": "Created",
+            "cancelled": "Cancelled",
+            "delivered": "Delivered",
+            "returned": "Returned",
+            "error": "Error"
+        },
+        "messages": {
+            "created": "The InPost shipment was created.",
+            "refreshed": "The shipment status was refreshed.",
+            "cancelled": "The shipment was cancelled.",
+            "cancelConfirm": "Do you really want to cancel this InPost shipment?",
+            "error": "The InPost operation failed."
+        }
+    },
+    "sw-privileges": {
+        "permissions": {
+            "clueware_inpost_shipping": {
+                "label": "InPost shipments",
+                "viewer": "View",
+                "creator": "Create",
+                "editor": "Refresh",
+                "canceller": "Cancel",
+                "labelDownloader": "Download labels"
+            }
+        }
+    }
+}

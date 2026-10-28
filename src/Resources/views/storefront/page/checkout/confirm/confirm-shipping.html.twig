@@ -1,0 +1,62 @@
+{% sw_extends '@Storefront/storefront/page/checkout/confirm/confirm-shipping.html.twig' %}
+
+{% block page_checkout_confirm_shipping_inner %}
+    {{ parent() }}
+
+    {% set inpost = page.extensions.cluewareInpostShipping %}
+    {% if inpost and inpost.lockerShippingMethodId %}
+        {% set isLockerSelected = context.shippingMethod.id is same as(inpost.lockerShippingMethodId) %}
+        <section class="clueware-inpost{% if not isLockerSelected %} d-none{% endif %}"
+                 data-clueware-inpost
+                 data-clueware-inpost-options="{{ {
+                     lockerShippingMethodId: inpost.lockerShippingMethodId,
+                     courierShippingMethodId: inpost.courierShippingMethodId,
+                     token: inpost.geowidgetToken,
+                     assetsUrl: inpost.assetsUrl,
+                     pointsApiUrl: inpost.pointsApiUrl,
+                     countries: inpost.countries,
+                     language: inpost.language,
+                     shippingAddressLocation: inpost.shippingAddressLocation,
+                     saveUrl: path('frontend.clueware.inpost.point.save'),
+                     clearUrl: path('frontend.clueware.inpost.point.clear'),
+                     selection: inpost.selection
+                 }|json_encode|escape('html_attr') }}">
+            <div class="clueware-inpost__selection" data-clueware-inpost-selection>
+                <strong>{{ 'cluewareInpostShipping.checkout.selectedPoint'|trans|sw_sanitize }}</strong>
+                <span data-clueware-inpost-selection-text>
+                    {% if inpost.selection %}
+                        {{ inpost.selection.name }} — {{ inpost.selection.street }} {{ inpost.selection.buildingNumber }},
+                        {{ inpost.selection.postCode }} {{ inpost.selection.city }}
+                    {% else %}
+                        {{ 'cluewareInpostShipping.checkout.noPoint'|trans|sw_sanitize }}
+                    {% endif %}
+                </span>
+            </div>
+
+            <button type="button"
+                    class="btn btn-outline-primary clueware-inpost__open"
+                    data-clueware-inpost-open>
+                {{ 'cluewareInpostShipping.checkout.choosePoint'|trans|sw_sanitize }}
+            </button>
+
+            <div class="alert alert-danger clueware-inpost__error d-none"
+                 role="alert"
+                 aria-live="assertive"
+                 data-clueware-inpost-error>
+                {{ 'cluewareInpostShipping.checkout.pointRequired'|trans|sw_sanitize }}
+            </div>
+
+            <div class="clueware-inpost__widget d-none" data-clueware-inpost-widget-container>
+                <button type="button"
+                        class="btn-close clueware-inpost__close"
+                        aria-label="{{ 'cluewareInpostShipping.checkout.closeMap'|trans|striptags }}"
+                        data-clueware-inpost-close></button>
+                <div class="clueware-inpost__loading" role="status">
+                    <span class="spinner-border" aria-hidden="true"></span>
+                    <span>{{ 'cluewareInpostShipping.checkout.loadingMap'|trans|sw_sanitize }}</span>
+                </div>
+                <div data-clueware-inpost-widget></div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

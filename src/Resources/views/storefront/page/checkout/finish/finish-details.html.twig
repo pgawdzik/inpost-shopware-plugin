@@ -1,0 +1,19 @@
+{% sw_extends '@Storefront/storefront/page/checkout/finish/finish-details.html.twig' %}
+
+{% block page_checkout_finish_order %}
+    {{ parent() }}
+
+    {% set point = page.order.customFields.cluewareInpostPoint %}
+    {% if point %}
+        <div class="card clueware-inpost-finish">
+            <div class="card-body">
+                <h2 class="card-title">{{ 'cluewareInpostShipping.finish.title'|trans|sw_sanitize }}</h2>
+                <p class="mb-0">
+                    <strong>{{ point.name }}</strong><br>
+                    {{ point.street }} {{ point.buildingNumber }},
+                    {{ point.postCode }} {{ point.city }}
+                </p>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

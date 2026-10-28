@@ -1,0 +1,81 @@
+.clueware-inpost-card {
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+
+        img {
+            width: 88px;
+            height: 44px;
+            object-fit: contain;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+    }
+
+    &__point {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 24px;
+        padding: 16px;
+        border-left: 4px solid #ffcd00;
+        background: #fff9df;
+    }
+
+    &__form {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    &__details dl {
+        display: grid;
+        grid-template-columns: minmax(140px, 1fr) 2fr;
+        gap: 8px 16px;
+        margin: 0 0 24px;
+    }
+
+    &__details dt {
+        font-weight: 600;
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    &__log {
+        margin-top: 24px;
+
+        ul {
+            margin: 12px 0 0;
+            padding-left: 20px;
+        }
+
+        li {
+            display: grid;
+            grid-template-columns: 180px 180px 1fr;
+            gap: 8px;
+            padding: 4px 0;
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    .clueware-inpost-card {
+        &__form {
+            grid-template-columns: 1fr;
+        }
+
+        &__log li {
+            grid-template-columns: 1fr;
+        }
+    }
+}
