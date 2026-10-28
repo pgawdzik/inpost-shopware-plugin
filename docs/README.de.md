@@ -6,7 +6,7 @@ Verbinden Sie Ihren Shopware 6 Shop mit InPost ShipX. Kunden wählen Paketautoma
 
 Das Plugin wird von [Clueware](https://clueware.de) entwickelt und unter der [MIT-Lizenz](../LICENSE) kostenlos bereitgestellt.
 
-**[Aktuelle Version herunterladen](https://github.com/pgawdzik/inpost-shopware-plugin/releases/latest)** · [Problem melden](https://github.com/pgawdzik/inpost-shopware-plugin/issues)
+**[Aktuelle Version herunterladen](https://github.com/pgawdzik/inpost-shopware-plugin/releases/latest)** · [Plugin-Website](https://clueware.de/inpost-shopware-plugin) · [Problem melden](https://github.com/pgawdzik/inpost-shopware-plugin/issues)
 
 ## Funktionen
 

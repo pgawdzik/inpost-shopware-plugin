@@ -8,7 +8,7 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-8B5CF6)](LICENSE)
 [![Latest release](https://img.shields.io/github/v/release/pgawdzik/inpost-shopware-plugin?color=8B5CF6)](https://github.com/pgawdzik/inpost-shopware-plugin/releases/latest)
 
-[Download ZIP](https://github.com/pgawdzik/inpost-shopware-plugin/releases/download/v2.0.15/CluewareInpostShipping-2.0.15.zip) · [Installation](#installation) · [Configuration](#configuration) · [Report an issue](https://github.com/pgawdzik/inpost-shopware-plugin/issues)
+[Download ZIP](https://github.com/pgawdzik/inpost-shopware-plugin/releases/download/v2.0.15/CluewareInpostShipping-2.0.15.zip) · [Plugin website](https://clueware.de/en/inpost-shopware-plugin) · [Installation](#installation) · [Configuration](#configuration) · [Report an issue](https://github.com/pgawdzik/inpost-shopware-plugin/issues)
 
 **Documentation:** English · [Polski](docs/README.pl.md) · [Deutsch](docs/README.de.md)
 
