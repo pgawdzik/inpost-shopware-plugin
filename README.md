@@ -1,3 +1,5 @@
+![InPost shipping integration for Shopware 6 by Clueware](docs/images/inpost-shopware-overview.jpg)
+
 # InPost Shopware Plugin
 
 **Free InPost shipping integration for Shopware 6.7 — parcel lockers, courier delivery, PDF labels and shipment tracking.**
@@ -13,8 +15,6 @@
 This InPost Shopware plugin connects your Shopware 6 store to the InPost ShipX API in Poland. Customers choose a parcel locker or pickup point directly at checkout. Your team creates shipments, downloads PDF shipping labels and checks tracking from the Shopware order view.
 
 Built by [Clueware](https://clueware.de). Free to use and modify under the [MIT license](LICENSE).
-
-![InPost shipping integration for Shopware 6 by Clueware](docs/images/inpost-shopware-overview.jpg)
 
 ## What you can do
 
