@@ -32,18 +32,20 @@ Wybrany punkt odbioru jest sprawdzany po stronie serwera i zapisywany z zamówie
 
 | Element | Wymaganie |
 |---|---|
-| Shopware | Własna instalacja Shopware **6.7.x** z modułem Storefront |
-| PHP | Wersja zgodna z wymaganiami używanej instalacji Shopware |
+| Shopware | Własna instalacja Shopware **6.7.0.0–6.7.16.0** z modułem Storefront |
+| PHP | **8.2 lub nowszy**, zgodny z wymaganiami używanej instalacji Shopware |
 | Metody dostawy | Istniejąca metoda dostawy z przypisanym czasem dostawy — potrzebna podczas instalacji |
 | ShipX | Własny token API i ID organizacji InPost ShipX |
 | GeoWidget | Publiczny token przypisany do domeny sklepu — dla wyboru punktów |
 
 Integracja przesyłek korzysta z InPost ShipX w Polsce. Lista krajów widocznych w GeoWidget steruje mapą; dostępność usług przesyłek zależy od konta ShipX.
 
+**Potrzebujesz wsparcia dla innej wersji Shopware lub dodatkowych funkcji?** Jeśli Twoja wersja Shopware nie jest kompatybilna z wtyczką albo chcesz, żeby wtyczka robiła więcej, napisz na [kontakt@clueware.de](mailto:kontakt@clueware.de).
+
 ## Instalacja z pliku ZIP
 
 1. Otwórz [najnowsze wydanie](https://github.com/pgawdzik/inpost-shopware-plugin/releases/latest).
-2. Pobierz paczkę instalacyjną **`CluewareInpostShipping-2.0.15.zip`** z sekcji **Assets**.
+2. Pobierz paczkę instalacyjną **`CluewareInpostShipping-2.0.16.zip`** z sekcji **Assets**.
 3. W panelu Shopware przejdź do **Rozszerzenia → Moje rozszerzenia** i wybierz przesłanie rozszerzenia.
 4. Wgraj ZIP, zainstaluj i aktywuj **InPost Shipping**.
 5. Otwórz konfigurację wtyczki i wykonaj poniższe kroki.

@@ -138,10 +138,6 @@ final class InPostApiClient implements InPostApiClientInterface
             throw new InPostApiException('InPost returned an invalid response.', 'invalid_response', 502);
         }
 
-        if (!\is_array($data)) {
-            throw new InPostApiException('InPost returned an invalid response.', 'invalid_response', 502);
-        }
-
         return $data;
     }
 

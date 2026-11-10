@@ -1,0 +1,6 @@
+storefront:
+    resource: '../../Storefront/Controller/**/*Controller.php'
+    type: attribute
+administration:
+    resource: '../../Administration/Controller/**/*Controller.php'
+    type: attribute

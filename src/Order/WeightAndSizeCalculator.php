@@ -4,7 +4,6 @@ namespace Clueware\InpostShipping\Order;
 
 use Clueware\InpostShipping\Configuration\PluginConfig;
 use Shopware\Core\Checkout\Order\OrderEntity;
-use Shopware\Core\Content\Product\ProductEntity;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -56,9 +55,6 @@ final class WeightAndSizeCalculator
         $volume = 0.0;
         $maxHeight = 0.0;
         foreach ($products as $product) {
-            if (!$product instanceof ProductEntity) {
-                continue;
-            }
             $quantity = $quantities[$product->getId()] ?? 1;
             $weight += max(0.0, (float) $product->getWeight()) * $quantity;
             $height = max(0.0, (float) $product->getHeight());

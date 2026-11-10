@@ -272,7 +272,7 @@ final class ShipmentManager
         $criteria->addAssociation('deliveries.shippingOrderAddress.country');
         $criteria->addAssociation('billingAddress.country');
         $criteria->addAssociation('lineItems');
-        $order = $this->orderRepository->search($criteria, $context)->first();
+        $order = $this->orderRepository->search($criteria, $context)->getEntities()->first();
         if (!$order instanceof OrderEntity) {
             throw new \InvalidArgumentException('Order not found.');
         }
@@ -286,7 +286,7 @@ final class ShipmentManager
             ->addFilter(new EqualsFilter('orderId', $orderId))
             ->addSorting(new \Shopware\Core\Framework\DataAbstractionLayer\Search\Sorting\FieldSorting('createdAt', 'DESC'))
             ->setLimit(1);
-        $shipment = $this->shipmentRepository->search($criteria, $context)->first();
+        $shipment = $this->shipmentRepository->search($criteria, $context)->getEntities()->first();
 
         return $shipment instanceof ShipmentEntity ? $shipment : null;
     }
@@ -297,7 +297,7 @@ final class ShipmentManager
             ->addFilter(new EqualsFilter('orderId', $orderId))
             ->addFilter(new \Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsAnyFilter('status', self::ACTIVE_STATUSES))
             ->setLimit(1);
-        $shipment = $this->shipmentRepository->search($criteria, $context)->first();
+        $shipment = $this->shipmentRepository->search($criteria, $context)->getEntities()->first();
 
         return $shipment instanceof ShipmentEntity ? $shipment : null;
     }
@@ -359,7 +359,7 @@ final class ShipmentManager
         }
 
         $payload = [
-            'receiver' => array_filter($receiver, static fn (mixed $value): bool => $value !== '' && $value !== null),
+            'receiver' => array_filter($receiver, static fn (mixed $value): bool => $value !== ''),
             'parcels' => $deliveryType === 'locker'
                 ? ['template' => $size]
                 : [

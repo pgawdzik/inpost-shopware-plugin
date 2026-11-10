@@ -8,7 +8,7 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-8B5CF6)](LICENSE)
 [![Latest release](https://img.shields.io/github/v/release/pgawdzik/inpost-shopware-plugin?color=8B5CF6)](https://github.com/pgawdzik/inpost-shopware-plugin/releases/latest)
 
-[Download ZIP](https://github.com/pgawdzik/inpost-shopware-plugin/releases/download/v2.0.15/CluewareInpostShipping-2.0.15.zip) · [Plugin website](https://clueware.de/en/inpost-shopware-plugin) · [Installation](#installation) · [Configuration](#configuration) · [Report an issue](https://github.com/pgawdzik/inpost-shopware-plugin/issues)
+[Download ZIP](https://github.com/pgawdzik/inpost-shopware-plugin/releases/download/v2.0.16/CluewareInpostShipping-2.0.16.zip) · [Plugin website](https://clueware.de/en/inpost-shopware-plugin) · [Installation](#installation) · [Configuration](#configuration) · [Report an issue](https://github.com/pgawdzik/inpost-shopware-plugin/issues)
 
 **Documentation:** English · [Polski](docs/README.pl.md) · [Deutsch](docs/README.de.md)
 
@@ -42,19 +42,21 @@ Also included:
 
 ## Requirements
 
-- A self-hosted Shopware **6.7.x** installation with Core and Storefront. Both Composer constraints are `~6.7.0`, allowing `>=6.7.0 <6.8.0`.
-- The PHP version and other system requirements of your Shopware installation.
+- A self-hosted Shopware **6.7.0.0–6.7.16.0** installation with Core and Storefront. Both Composer constraints are `>=6.7.0.0 <=6.7.16.0`.
+- PHP **8.2 or newer**, compatible with your Shopware installation, and its other system requirements.
 - At least one existing Shopware shipping method with an assigned delivery time, used as the initial delivery-time reference during installation.
 - Your own InPost ShipX API token and organization ID for shipment management.
 - A public, domain-bound InPost Geowidget token for parcel locker selection.
 
 The plugin is free; InPost shipping services require your own InPost account. Countries available in Geowidget do not by themselves confirm that a shipment service is available through your ShipX account.
 
+**Need support for another Shopware version or additional features?** If your Shopware version is not compatible with this plugin, or you would like the plugin to do more, email [kontakt@clueware.de](mailto:kontakt@clueware.de).
+
 ## Installation
 
 ### Upload the release ZIP
 
-1. Download **CluewareInpostShipping-2.0.15.zip** from [Releases](https://github.com/pgawdzik/inpost-shopware-plugin/releases/latest).
+1. Download **CluewareInpostShipping-2.0.16.zip** from [Releases](https://github.com/pgawdzik/inpost-shopware-plugin/releases/latest).
 2. In Shopware Administration, open **Extensions → My extensions → Upload extension**.
 3. Upload the ZIP, install **InPost Shipping** and activate it.
 4. Review the new shipping methods' prices, delivery times and availability rules before enabling the integration. Their initial shipping prices are **0**.

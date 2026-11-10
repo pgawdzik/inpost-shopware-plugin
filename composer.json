@@ -1,7 +1,7 @@
 {
     "name": "clueware/inpost-shipping",
     "description": "Free InPost Shopware plugin for Shopware 6: parcel lockers, courier shipping, PDF labels and tracking via ShipX.",
-    "version": "2.0.15",
+    "version": "2.0.16",
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "homepage": "https://github.com/pgawdzik/inpost-shopware-plugin",
@@ -17,9 +17,9 @@
         }
     ],
     "require": {
-        "php": ">=8.1",
-        "shopware/core": "~6.7.0",
-        "shopware/storefront": "~6.7.0"
+        "php": ">=8.2",
+        "shopware/core": ">=6.7.0.0 <=6.7.16.0",
+        "shopware/storefront": ">=6.7.0.0 <=6.7.16.0"
     },
     "autoload": {
         "psr-4": {
@@ -34,8 +34,8 @@
             "pl-PL": "Wysyłka InPost"
         },
         "description": {
-            "de-DE": "Paczkomat-Auswahl und vollständige Verwaltung einzelner InPost-Sendungen.",
-            "en-GB": "Parcel locker selection and complete management of individual InPost shipments.",
+            "de-DE": "Integriert InPost-Paketautomaten und Kurierdienste mit Abholpunktauswahl im Checkout sowie Sendungsverwaltung, Sendungsverfolgung und Etikettendownload in der Administration.",
+            "en-GB": "Integrate InPost parcel locker and courier shipping with pickup point selection at checkout, shipment management, tracking and label downloads directly in Administration.",
             "pl-PL": "Wybór Paczkomatu i kompletna obsługa pojedynczych przesyłek InPost."
         },
         "manufacturerLink": {

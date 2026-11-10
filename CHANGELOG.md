@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.16 — 2026-11-10
+
+- Add compatibility with Shopware 6.7.16.0, set the supported Core and Storefront range to `>=6.7.0.0 <=6.7.16.0`, and require PHP 8.2 or newer.
+- Update DAL collection access and remove redundant response and payload checks reported by the Shopware static analyzer.
+- Migrate service and route configuration to YAML to avoid deprecated Symfony XML configuration loading, and update the release builder accordingly.
+- Refresh compiled Storefront and Administration assets and synchronize the Administration module version.
+- Consolidate Storefront translations in one snippet directory with the English fallback.
+- Optimize the plugin icon and update English and German plugin descriptions for Shopware Store metadata requirements.
+- Add an email contact for unsupported Shopware versions and feature requests to the English, Polish and German documentation.
+
 ## 2.0.15 — 2026-10-28
 
 - Allow the full Shopware 6.7 release line for Core and Storefront (`~6.7.0`), removing the upper limit of 6.7.14.0.

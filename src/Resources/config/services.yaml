@@ -1,0 +1,53 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+    Clueware\InpostShipping\:
+        resource: ../../
+        exclude: '../../{DependencyInjection,Resources,Migration,Test}'
+    Clueware\InpostShipping\Content\Shipment\ShipmentDefinition:
+        tags:
+            -
+                name: shopware.entity.definition
+                entity: clueware_inpost_shipment
+    Clueware\InpostShipping\Api\InPostApiClientInterface:
+        alias: Clueware\InpostShipping\Api\InPostApiClient
+    Clueware\InpostShipping\Shipping\ShippingMethodMediaInstaller:
+        public: true
+        arguments:
+            - '@Doctrine\DBAL\Connection'
+            - '@Shopware\Core\Content\Media\MediaService'
+            - '@media.repository'
+    Clueware\InpostShipping\Shipping\ShippingMethodAvailabilitySynchronizer:
+        public: true
+    Clueware\InpostShipping\Configuration\PhoneFieldVisibilitySynchronizer:
+        public: true
+    Clueware\InpostShipping\Order\WeightAndSizeCalculator:
+        arguments:
+            - '@product.repository'
+            - '@Clueware\InpostShipping\Configuration\PluginConfig'
+    Clueware\InpostShipping\Order\ShipmentManager:
+        arguments:
+            - '@order.repository'
+            - '@clueware_inpost_shipment.repository'
+            - '@order_delivery.repository'
+            - '@Clueware\InpostShipping\Configuration\PluginConfig'
+            - '@Clueware\InpostShipping\Api\InPostApiClientInterface'
+            - '@Clueware\InpostShipping\Order\WeightAndSizeCalculator'
+            - '@Clueware\InpostShipping\Order\ShipmentStatusMapper'
+            - '@lock.factory'
+    Clueware\InpostShipping\Storefront\Controller\PointSelectionController:
+        public: true
+        calls:
+            -
+                - setContainer
+                -
+                    - '@service_container'
+    Clueware\InpostShipping\Administration\Controller\ShipmentController:
+        public: true
+        calls:
+            -
+                - setContainer
+                -
+                    - '@service_container'

@@ -32,18 +32,20 @@ Der ausgewählte Abholpunkt wird serverseitig geprüft und mit der Bestellung ge
 
 | Komponente | Voraussetzung |
 |---|---|
-| Shopware | Eigene Installation von Shopware **6.7.x** mit Storefront |
-| PHP | Eine mit Ihrer Shopware-Installation kompatible PHP-Version |
+| Shopware | Eigene Installation von Shopware **6.7.0.0–6.7.16.0** mit Storefront |
+| PHP | **8.2 oder neuer**, kompatibel mit Ihrer Shopware-Installation |
 | Versandarten | Eine vorhandene Versandart mit zugeordneter Lieferzeit — für die Installation erforderlich |
 | ShipX | Eigener API-Token und eigene Organisations-ID für InPost ShipX |
 | GeoWidget | Öffentlicher, an die Shop-Domain gebundener Token für die Abholpunktauswahl |
 
 Die Versandintegration verwendet InPost ShipX in Polen. Die Länderauswahl in GeoWidget steuert die Kartenanzeige; die verfügbaren Versanddienste richten sich nach Ihrem ShipX-Konto.
 
+**Benötigen Sie Unterstützung für eine andere Shopware-Version oder zusätzliche Funktionen?** Wenn Ihre Shopware-Version nicht mit dem Plugin kompatibel ist oder Sie sich weitere Funktionen wünschen, schreiben Sie an [kontakt@clueware.de](mailto:kontakt@clueware.de).
+
 ## Installation per ZIP-Datei
 
 1. Öffnen Sie die [aktuelle Veröffentlichung](https://github.com/pgawdzik/inpost-shopware-plugin/releases/latest).
-2. Laden Sie unter **Assets** das Installationspaket **`CluewareInpostShipping-2.0.15.zip`** herunter.
+2. Laden Sie unter **Assets** das Installationspaket **`CluewareInpostShipping-2.0.16.zip`** herunter.
 3. Öffnen Sie in Shopware **Erweiterungen → Meine Erweiterungen** und wählen Sie die Funktion zum Hochladen einer Erweiterung.
 4. Laden Sie die ZIP-Datei hoch, installieren und aktivieren Sie **InPost Shipping**.
 5. Öffnen Sie die Plugin-Konfiguration und führen Sie die folgenden Schritte aus.

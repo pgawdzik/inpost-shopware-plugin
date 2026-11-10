@@ -16,15 +16,15 @@ ROOT_FILES = ("composer.json", "README.md", "CHANGELOG.md", "LICENSE")
 DIRECTORIES = ("src", "docs", "scripts")
 REQUIRED_FILES = (
     "src/CluewareInpostShipping.php",
-    "src/Resources/config/services.xml",
+    "src/Resources/config/services.yaml",
     "src/Resources/config/config.xml",
-    "src/Resources/config/routes.xml",
+    "src/Resources/config/routes.yaml",
     "src/Resources/app/storefront/dist/storefront/js/clueware-inpost-shipping/clueware-inpost-shipping.js",
     "src/Resources/public/administration/.vite/entrypoints.json",
     "src/Resources/public/administration/.vite/manifest.json",
 )
 EXCLUDED_PARTS = {".git", "node_modules", "vendor", "__pycache__"}
-TEXT_SUFFIXES = {".php", ".js", ".css", ".scss", ".json", ".xml", ".twig", ".svg", ".md", ".py"}
+TEXT_SUFFIXES = {".php", ".js", ".css", ".scss", ".json", ".xml", ".yaml", ".yml", ".twig", ".svg", ".md", ".py"}
 
 
 def archive_bytes(path: Path) -> bytes:
